@@ -1,35 +1,9 @@
 import type { Metadata } from "next";
-import "./globals.css";
-import "bootstrap/dist/css/bootstrap.min.css";
-import { Container, Nav, Navbar, NavLink } from "react-bootstrap";
 
 export const metadata: Metadata = {
   title: "Lara Janecka",
   description: "Personal website of Lara Janecka",
 };
-
-function Navigation() {
-  return (
-    <Container>
-      <Navbar
-        bg="dark"
-        data-bs-theme="dark"
-        sticky="top"
-        expand="lg"
-        className="bg-body-tertiary"
-      >
-        <Nav className="me-auto">
-          <NavLink href="/">Home</NavLink>
-          <NavLink href="/stack">Tech Stack</NavLink>
-          <NavLink href="/experience">Work Experience</NavLink>
-          <NavLink href="/contact">Contact</NavLink>
-          <NavLink href="/resume">Resume</NavLink>
-          <NavLink href="/facts">Fun Facts</NavLink>
-        </Nav>
-      </Navbar>
-    </Container>
-  );
-}
 
 export default function RootLayout({
   children,
@@ -38,8 +12,27 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link
+          rel="preconnect"
+          href="https://fonts.gstatic.com"
+          crossOrigin="true"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap"
+        />
+        <link
+          rel="stylesheet"
+          href="https://fonts.googleapis.com/icon?family=Material+Icons"
+        />
+        <link
+          rel="stylesheet"
+          href="https://www.nerdfonts.com/assets/css/webfont.css"
+        />
+      </head>
       <body>
-        <Navigation />
         <>{children}</>
       </body>
     </html>
