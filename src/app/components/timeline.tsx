@@ -68,10 +68,13 @@ function Separator({
   children: ReactNode;
   color: "none" | string;
 }) {
-  const Dot = color === "none" ? NoFillDot : FillDot;
   return (
     <TimelineSeparator>
-      <Dot $color={color}>{children}</Dot>
+    { color === "none" ? 
+        <NoFillDot>{children}</NoFillDot>
+
+      : <FillDot $color={color}>{children}</FillDot>
+    }
       <TimelineConnector />
     </TimelineSeparator>
   );
@@ -86,8 +89,8 @@ function HighlightsList({ entries }: { entries: string[] }) {
   return (
     <Typography color="text.primary">
       <StyledList>
-        {entries.map((entry) => (
-          <li>{entry}</li>
+        {entries.map((entry,i) => (
+          <li key={i}>{entry}</li>
         ))}
       </StyledList>
     </Typography>

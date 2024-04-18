@@ -14,6 +14,7 @@ import {
   styled,
 } from "@mui/material";
 import TimelineSection from "./components/timeline";
+import StackSection from "./components/stack";
 
 // TODO: make the nav bar reactive: https://mui.com/material-ui/react-app-bar/#responsive-app-bar-with-drawer
 
@@ -101,6 +102,19 @@ export default function Home() {
           >
             <ParallaxDataSection>
               <TimelineSection />
+            </ParallaxDataSection>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={Pages.STACK}
+            speed={1}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ParallaxDataSection>
+              <StackSection />
             </ParallaxDataSection>
           </ParallaxLayer>
         </Parallax>
