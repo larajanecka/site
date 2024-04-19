@@ -1,5 +1,5 @@
 "use client";
-import { Typography, styled } from "@mui/material";
+import { Typography } from "@mui/material";
 import { ParallaxLayer } from "@react-spring/parallax";
 
 const Clouds = [
@@ -33,10 +33,6 @@ const Facts = [
   "Will start a book club",
 ];
 
-function randInt(max: number) {
-  return Math.ceil(Math.random() * max);
-}
-
 function shuffle<K>(arr: K[]) {
   const newArr: K[] = Array(arr.length).fill(null);
   arr.forEach((val) => {
@@ -52,7 +48,7 @@ function shuffle<K>(arr: K[]) {
 export default function createFunFactClouds(offset: number) {
   const colors = shuffle(CloudColors);
   const imgs = shuffle(Clouds);
-  const lefts = shuffle([10, 20, 30, 40, 50, 60, 70, 80, 90]);
+  const lefts = [10, 20, 30, 40, 50, 60, 70, 80, 90];
 
   return Facts.map((fact, idx) => {
     const color = colors[idx % colors.length];

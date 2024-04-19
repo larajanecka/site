@@ -1,18 +1,10 @@
 import { CircleRounded } from "@mui/icons-material";
 import {
-  Box,
-  ThemeProvider,
   Typography,
-  createTheme,
   styled,
 } from "@mui/material";
-import { BarChart, BarElement, BarElementProps } from "@mui/x-charts";
+import { BarChart, BarElement } from "@mui/x-charts";
 
-const darkTheme = createTheme({
-  palette: {
-    mode: "light",
-  },
-});
 enum CATEGORY {
   Basic = 1,
   Fundamentals = 2,
@@ -89,61 +81,59 @@ function Legend() {
 
 export default function StackSection() {
   return (
-    <ThemeProvider theme={darkTheme}>
-      <StackContainer>
-        <ChartContainer>
-          <BarChart
-            skipAnimation
-            layout="horizontal"
-            grid={{ vertical: true }}
-            height={500}
-            width={1000}
-            margin={{
-              left: 120,
-            }}
-            xAxis={[
-              {
-                dataKey: "value",
-                tickMinStep: 1,
-                valueFormatter: (val) => CATEGORY[val],
-              },
-            ]}
-            yAxis={[
-              {
-                scaleType: "band",
-                dataKey: "name",
-              },
-            ]}
-            dataset={DataSet}
-            series={[
-              {
-                dataKey: "value",
-              },
-            ]}
-            slots={{
-              bar: (props: any) => {
-                const index = props.ownerState.dataIndex;
-                const value = DataSet[index].value;
-                const color = COLOR_MAP[value];
+    <StackContainer>
+      <ChartContainer>
+        <BarChart
+          skipAnimation
+          layout="horizontal"
+          grid={{ vertical: true }}
+          height={500}
+          width={1000}
+          margin={{
+            left: 120,
+          }}
+          xAxis={[
+            {
+              dataKey: "value",
+              tickMinStep: 1,
+              valueFormatter: (val) => CATEGORY[val],
+            },
+          ]}
+          yAxis={[
+            {
+              scaleType: "band",
+              dataKey: "name",
+            },
+          ]}
+          dataset={DataSet}
+          series={[
+            {
+              dataKey: "value",
+            },
+          ]}
+          slots={{
+            bar: (props: any) => {
+              const index = props.ownerState.dataIndex;
+              const value = DataSet[index].value;
+              const color = COLOR_MAP[value];
 
-                return (
-                  <BarElement
-                    id={index}
-                    dataIndex={index}
-                    {...props}
-                    style={{
-                      ...props.style,
-                      fill: color,
-                    }}
-                  />
-                );
-              },
-            }}
-          />
-        </ChartContainer>
-        <Legend />
-      </StackContainer>
-    </ThemeProvider>
+              return (
+                <BarElement
+                  id={index}
+                  dataIndex={index}
+                  {...props}
+                  style={{
+                    ...props.style,
+                    fill: color,
+                  }}
+                />
+              );
+            },
+          }}
+        />
+      </ChartContainer>
+      <Legend />
+    </StackContainer>
   );
 }
 

@@ -15,13 +15,15 @@ import TimelineSection from "./components/timeline";
 import StackSection from "./components/stack";
 import ContactsSection from "./components/contacts";
 import createFunFactClouds from "./components/facts";
+import HomeSection from "./components/home";
 
 // TODO: make the nav bar reactive: https://mui.com/material-ui/react-app-bar/#responsive-app-bar-with-drawer
 // TODO: url params
 
-const darkTheme = createTheme({
+
+const lightTheme = createTheme({
   palette: {
-    mode: "dark",
+    mode: "light",
   },
 });
 
@@ -56,7 +58,7 @@ export default function Home() {
 
   return (
     <>
-      <ThemeProvider theme={darkTheme}>
+      <ThemeProvider theme={lightTheme}>
         <CssBaseline />
         <Navigation
           onClick={(page: Pages) => parallax.current.scrollTo(page)}
@@ -92,6 +94,19 @@ export default function Home() {
             style={{ backgroundColor: "#DBBADD" }}
             onClick={() => parallax.current.scrollTo(1)}
           />
+          <ParallaxLayer
+            offset={Pages.HOME}
+            speed={1}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ParallaxDataSection>
+              <HomeSection />
+            </ParallaxDataSection>
+          </ParallaxLayer>
           <ParallaxLayer
             offset={Pages.EXPERIENCE}
             speed={1}
