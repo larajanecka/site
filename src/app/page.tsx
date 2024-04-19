@@ -4,9 +4,7 @@ import { IParallax, Parallax, ParallaxLayer } from "@react-spring/parallax";
 import CssBaseline from "@mui/material/CssBaseline";
 import {
   AppBar,
-  Box,
   Button,
-  Container,
   ThemeProvider,
   Toolbar,
   Typography,
@@ -15,8 +13,10 @@ import {
 } from "@mui/material";
 import TimelineSection from "./components/timeline";
 import StackSection from "./components/stack";
+import ContactsSection from "./components/contacts";
 
 // TODO: make the nav bar reactive: https://mui.com/material-ui/react-app-bar/#responsive-app-bar-with-drawer
+// TODO: url params
 
 const darkTheme = createTheme({
   palette: {
@@ -115,6 +115,19 @@ export default function Home() {
           >
             <ParallaxDataSection>
               <StackSection />
+            </ParallaxDataSection>
+          </ParallaxLayer>
+          <ParallaxLayer
+            offset={Pages.CONTACT}
+            speed={1}
+            style={{
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+            }}
+          >
+            <ParallaxDataSection>
+              <ContactsSection />
             </ParallaxDataSection>
           </ParallaxLayer>
         </Parallax>
