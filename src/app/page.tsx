@@ -14,6 +14,7 @@ import {
 import TimelineSection from "./components/timeline";
 import StackSection from "./components/stack";
 import ContactsSection from "./components/contacts";
+import createFunFactClouds from "./components/facts";
 
 // TODO: make the nav bar reactive: https://mui.com/material-ui/react-app-bar/#responsive-app-bar-with-drawer
 // TODO: url params
@@ -28,8 +29,8 @@ enum Pages {
   HOME = 0,
   EXPERIENCE = 1,
   STACK = 2,
-  CONTACT = 3,
-  FACTS = 4,
+  FACTS = 3,
+  CONTACT = 4,
 }
 
 function Navigation({ onClick }: { onClick: (page: Pages) => void }) {
@@ -42,8 +43,8 @@ function Navigation({ onClick }: { onClick: (page: Pages) => void }) {
             Experience
           </NavButton>
           <NavButton onClick={() => onClick(Pages.STACK)}>Tech Stack</NavButton>
-          <NavButton onClick={() => onClick(Pages.CONTACT)}>Contact</NavButton>
           <NavButton onClick={() => onClick(Pages.FACTS)}>Fun Facts</NavButton>
+          <NavButton onClick={() => onClick(Pages.CONTACT)}>Contact</NavButton>
           <NavButton>Resume</NavButton>
         </Typography>
       </NavbarContainer>
@@ -70,7 +71,7 @@ export default function Home() {
           <ParallaxLayer
             offset={Pages.EXPERIENCE}
             speed={0}
-            style={{ backgroundColor: "#96CDFF" }}
+            style={{ backgroundColor: "#BE92A2" }}
             onClick={() => parallax.current.scrollTo(2)}
           ></ParallaxLayer>
           <ParallaxLayer
@@ -82,13 +83,13 @@ export default function Home() {
           <ParallaxLayer
             offset={3}
             speed={0}
-            style={{ backgroundColor: "#DBBADD" }}
+            style={{ backgroundColor: "#96CDFF" }}
             onClick={() => parallax.current.scrollTo(4)}
           />
           <ParallaxLayer
             offset={4}
             speed={0}
-            style={{ backgroundColor: "#BE92A2" }}
+            style={{ backgroundColor: "#DBBADD" }}
             onClick={() => parallax.current.scrollTo(1)}
           />
           <ParallaxLayer
@@ -117,6 +118,7 @@ export default function Home() {
               <StackSection />
             </ParallaxDataSection>
           </ParallaxLayer>
+          {createFunFactClouds(Pages.FACTS)}
           <ParallaxLayer
             offset={Pages.CONTACT}
             speed={1}
