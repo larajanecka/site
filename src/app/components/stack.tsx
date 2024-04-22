@@ -5,7 +5,7 @@ import {
 } from "@mui/material";
 import { BarChart, BarElement } from "@mui/x-charts";
 
-enum CATEGORY {
+enum LEVEL {
   Basic = 1,
   Fundamentals = 2,
   Proficient = 3,
@@ -14,61 +14,61 @@ enum CATEGORY {
 }
 
 const COLOR_MAP = {
-  [CATEGORY.Basic]: "#00a6fb",
-  [CATEGORY.Fundamentals]: "#0582ca",
-  [CATEGORY.Proficient]: "#006494",
-  [CATEGORY.Opinionated]: "#003554",
-  [CATEGORY.Master]: "#051923",
+  [LEVEL.Basic]: "#00a6fb",
+  [LEVEL.Fundamentals]: "#0582ca",
+  [LEVEL.Proficient]: "#006494",
+  [LEVEL.Opinionated]: "#003554",
+  [LEVEL.Master]: "#051923",
 };
 
 type LanguageData = {
   name: string;
-  value: CATEGORY;
+  value: LEVEL;
   extra?: string;
 };
 const DataSet: LanguageData[] = [
   {
     name: "Typescript",
-    value: CATEGORY.Proficient,
+    value: LEVEL.Proficient,
   },
   {
     name: "Ruby on Rails",
-    value: CATEGORY.Opinionated,
+    value: LEVEL.Opinionated,
   },
 ];
 
 function Legend() {
   return (
     <LegendContainer>
-      <CircleRounded style={{ color: COLOR_MAP[CATEGORY.Basic] }} />
+      <CircleRounded style={{ color: COLOR_MAP[LEVEL.Basic] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Basic
         </Typography>
         <Typography color="text.secondary">TODO</Typography>
       </LegendEntry>
-      <CircleRounded style={{ color: COLOR_MAP[CATEGORY.Fundamentals] }} />
+      <CircleRounded style={{ color: COLOR_MAP[LEVEL.Fundamentals] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Fundamentals
         </Typography>
         <Typography color="text.secondary">TODO</Typography>
       </LegendEntry>
-      <CircleRounded style={{ color: COLOR_MAP[CATEGORY.Proficient] }} />
+      <CircleRounded style={{ color: COLOR_MAP[LEVEL.Proficient] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Proficient
         </Typography>
         <Typography color="text.secondary">TODO</Typography>
       </LegendEntry>
-      <CircleRounded style={{ color: COLOR_MAP[CATEGORY.Opinionated] }} />
+      <CircleRounded style={{ color: COLOR_MAP[LEVEL.Opinionated] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Opinionated
         </Typography>
         <Typography color="text.secondary">TODO</Typography>
       </LegendEntry>
-      <CircleRounded style={{ color: COLOR_MAP[CATEGORY.Master] }} />
+      <CircleRounded style={{ color: COLOR_MAP[LEVEL.Master] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Master
@@ -96,7 +96,7 @@ export default function StackSection() {
             {
               dataKey: "value",
               tickMinStep: 1,
-              valueFormatter: (val) => CATEGORY[val],
+              valueFormatter: (val) => LEVEL[val],
             },
           ]}
           yAxis={[
