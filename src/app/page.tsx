@@ -20,7 +20,6 @@ import HomeSection from "./components/home";
 // TODO: make the nav bar reactive: https://mui.com/material-ui/react-app-bar/#responsive-app-bar-with-drawer
 // TODO: url params
 
-
 const lightTheme = createTheme({
   palette: {
     mode: "light",
@@ -47,7 +46,9 @@ function Navigation({ onClick }: { onClick: (page: Pages) => void }) {
           <NavButton onClick={() => onClick(Pages.STACK)}>Tech Stack</NavButton>
           <NavButton onClick={() => onClick(Pages.FACTS)}>Fun Facts</NavButton>
           <NavButton onClick={() => onClick(Pages.CONTACT)}>Contact</NavButton>
-          <NavButton>Resume</NavButton>
+          <NavButton href="pdfs/resume.pdf" download>
+            Resume
+          </NavButton>
         </Typography>
       </NavbarContainer>
     </AppBar>
@@ -65,38 +66,38 @@ export default function Home() {
         />
         <Parallax ref={parallax} pages={5} style={{ top: "0", left: "0" }}>
           <ParallaxLayer
-            offset={0}
+            offset={Pages.HOME}
             speed={0}
-            style={{ backgroundColor: "#69DDFF" }}
-            onClick={() => parallax.current.scrollTo(1)}
+            style={{ backgroundColor: "#e4c1f9ff" }}
+            onClick={() => parallax.current.scrollTo(Pages.EXPERIENCE)}
           />
           <ParallaxLayer
             offset={Pages.EXPERIENCE}
             speed={0}
-            style={{ backgroundColor: "#BE92A2" }}
-            onClick={() => parallax.current.scrollTo(2)}
+            style={{ backgroundColor: "#d0f4deff" }}
+            onClick={() => parallax.current.scrollTo(Pages.STACK)}
           ></ParallaxLayer>
           <ParallaxLayer
-            offset={2}
+            offset={Pages.STACK}
             speed={0}
-            style={{ backgroundColor: "#D8E1FF" }}
-            onClick={() => parallax.current.scrollTo(3)}
+            style={{ backgroundColor: "#ffb4a2" }}
+            onClick={() => parallax.current.scrollTo(Pages.FACTS)}
           />
           <ParallaxLayer
-            offset={3}
+            offset={Pages.FACTS}
             speed={0}
-            style={{ backgroundColor: "#96CDFF" }}
-            onClick={() => parallax.current.scrollTo(4)}
+            style={{ backgroundColor: "#a9def9ff" }}
+            onClick={() => parallax.current.scrollTo(Pages.CONTACT)}
           />
           <ParallaxLayer
-            offset={4}
+            offset={Pages.CONTACT}
             speed={0}
-            style={{ backgroundColor: "#DBBADD" }}
-            onClick={() => parallax.current.scrollTo(1)}
+            style={{ backgroundColor: "#fcf6bdff" }}
+            onClick={() => parallax.current.scrollTo(Pages.HOME)}
           />
           <ParallaxLayer
             offset={Pages.HOME}
-            speed={1}
+            speed={0}
             style={{
               display: "flex",
               alignItems: "center",
@@ -109,7 +110,7 @@ export default function Home() {
           </ParallaxLayer>
           <ParallaxLayer
             offset={Pages.EXPERIENCE}
-            speed={1}
+            speed={1.5}
             style={{
               display: "flex",
               alignItems: "center",
@@ -122,7 +123,7 @@ export default function Home() {
           </ParallaxLayer>
           <ParallaxLayer
             offset={Pages.STACK}
-            speed={1}
+            speed={1.5}
             style={{
               display: "flex",
               alignItems: "center",
@@ -136,7 +137,7 @@ export default function Home() {
           {createFunFactClouds(Pages.FACTS)}
           <ParallaxLayer
             offset={Pages.CONTACT}
-            speed={1}
+            speed={1.5}
             style={{
               display: "flex",
               alignItems: "center",

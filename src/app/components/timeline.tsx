@@ -111,7 +111,7 @@ export default function TimelineSection() {
               "Organized multiple team building events",
               "Lead creation of dynamic discount application via user settings  tool",
               "Built user onboarding to payments system",
-              "Facilitated conversations to resolve abiguities in project requirements",
+              "Facilitated conversations to resolve ambiguities in project requirements",
             ]}
           />
         </Entry>
@@ -131,9 +131,9 @@ export default function TimelineSection() {
               "Initiated and participated in committee to redesign technical interview process",
               "Rebuilt complex price calculation system to accommodate future expansions and increased accuracy requirements",
               "Built UI for ingesting client's book of business to facilitate contract negotiations",
-              "Created job to keep multiple sources of data in sync over high traffic periods",
+              "Created scheduled job to keep multiple sources of data in sync over high traffic periods",
               "Co-founded women in engineering ERG",
-              "Wrote complete system documentation for 2 codebases and colaborated on user guide",
+              "Wrote complete system documentation for 2 codebases and collaborated on user guide",
               "Refactored csv ingestion engine into pipeline architecture and built out comprehensive test suite to do so safely",
               "Represented team in multiple company and org wide presentations",
               "Attended multiple recruiting and outreach events",
@@ -182,7 +182,7 @@ export default function TimelineSection() {
         <Entry title="Auvik" position="Software Engineering Intern">
           <HighlightsList
             entries={[
-              "Implemented network simulator and seen by SNMP polling",
+              "Implemented network simulator as seen by SNMP polling",
               "Expansion of D3 and Backbone based data displays",
               "PDF generation of network displays",
             ]}

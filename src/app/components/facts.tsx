@@ -31,6 +31,10 @@ const Facts = [
   "Has an adorable dog",
   "Owns too many board games",
   "Will start a book club",
+  "Has far too many opinions on keyboards",
+  "Bakes a lot of cookies",
+  "Collects odd trivia",
+  "Avid gamer"
 ];
 
 function shuffle<K>(arr: K[]) {

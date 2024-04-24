@@ -45,8 +45,8 @@ function ContactItem({
   onClick: () => void;
 }) {
   return (
-    <ContactItemContainer onClick={onClick}>
-      <ContactButton $color={color}>
+    <ContactItemContainer>
+      <ContactButton onClick={onClick} $color={color}>
         {icon}
         <Typography color="text.secondary" style={{ textAlign: "center" }}>
           {description}
@@ -68,7 +68,7 @@ export default function ContactsSection() {
         <ContactItem
           color="#5f0f40"
           description="lara.janecka@gmail.com"
-          icon={<MailOutlineSharp  />}
+          icon={<MailOutlineSharp />}
           onClick={async () => await copy("lara.janecka@gmail.com")}
         />
         <ContactItem

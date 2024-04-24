@@ -1,8 +1,5 @@
 import { CircleRounded } from "@mui/icons-material";
-import {
-  Typography,
-  styled,
-} from "@mui/material";
+import { Typography, styled } from "@mui/material";
 import { BarChart, BarElement } from "@mui/x-charts";
 
 enum LEVEL {
@@ -35,6 +32,161 @@ const DataSet: LanguageData[] = [
     name: "Ruby on Rails",
     value: LEVEL.Opinionated,
   },
+  {
+    name: "Postgres",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "React",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "GraphQL",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "Prisma",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "NodeJS",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "NestJS",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Jest",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Sorbet",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Rspec",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "HTML/Css",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "GraphQL",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "Flow",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "GraphQL",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "Datadog",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "ElasticSearch",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "Storybook",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Fullstory",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Webpack",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Git",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Selenium",
+    value: LEVEL.Fundamentals,
+  },
+
+  {
+    name: "Project Planning",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Documentation",
+    value: LEVEL.Master,
+  },
+  {
+    name: "Collaboration",
+    value: LEVEL.Proficient,
+  },
+  {
+    name: "Interviewing",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Event Planning",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Mentorship",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Presenting",
+    value: LEVEL.Proficient,
+  },
+
+  {
+    name: "Kafka",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Redis",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "GRPC",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "AWS S3",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "AWS EC2",
+    value: LEVEL.Basic,
+  },
+  {
+    name: "Docker",
+    value: LEVEL.Fundamentals,
+  },
+
+  {
+    name: "Figma",
+    value: LEVEL.Basic,
+  },
+  {
+    name: "Jira",
+    value: LEVEL.Fundamentals,
+  },
+  {
+    name: "Salesforce",
+    value: LEVEL.Basic,
+  },
+  {
+    name: "Agile/Scrum",
+    value: LEVEL.Opinionated,
+  },
+  {
+    name: "Games",
+    value: LEVEL.Master,
+  },
 ];
 
 function Legend() {
@@ -45,35 +197,46 @@ function Legend() {
         <Typography variant="h6" component="span" color="text.primary">
           Basic
         </Typography>
-        <Typography color="text.secondary">TODO</Typography>
+        <Typography color="text.secondary">
+          Can operate within and expand upon existing implementations.
+        </Typography>
       </LegendEntry>
       <CircleRounded style={{ color: COLOR_MAP[LEVEL.Fundamentals] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Fundamentals
         </Typography>
-        <Typography color="text.secondary">TODO</Typography>
+        <Typography color="text.secondary">
+          Could implement anything the system was designed to accomodate.
+        </Typography>
       </LegendEntry>
       <CircleRounded style={{ color: COLOR_MAP[LEVEL.Proficient] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Proficient
         </Typography>
-        <Typography color="text.secondary">TODO</Typography>
+        <Typography color="text.secondary">
+          Could implement any feature using system.
+        </Typography>
       </LegendEntry>
       <CircleRounded style={{ color: COLOR_MAP[LEVEL.Opinionated] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Opinionated
         </Typography>
-        <Typography color="text.secondary">TODO</Typography>
+        <Typography color="text.secondary">
+          Understands the system well enough to have formed opinions on best
+          practices.
+        </Typography>
       </LegendEntry>
       <CircleRounded style={{ color: COLOR_MAP[LEVEL.Master] }} />
       <LegendEntry>
         <Typography variant="h6" component="span" color="text.primary">
           Master
         </Typography>
-        <Typography color="text.secondary">TODO</Typography>
+        <Typography color="text.secondary">
+          Intimately familiar with inner workings and implementation details.
+        </Typography>
       </LegendEntry>
     </LegendContainer>
   );
@@ -87,7 +250,7 @@ export default function StackSection() {
           skipAnimation
           layout="horizontal"
           grid={{ vertical: true }}
-          height={500}
+          height={2000}
           width={1000}
           margin={{
             left: 120,
@@ -139,9 +302,12 @@ export default function StackSection() {
 
 const LegendContainer = styled("div")`
   flex: 1;
-  padding: 12px;
+  margin-top: 50px;
+  padding: 20px;
   display: grid;
   grid-template-columns: 40px auto;
+  grid-auto-rows: min-content;
+  grid-row-gap: 30px;
 `;
 const LegendEntry = styled("div")``;
 
