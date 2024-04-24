@@ -46,7 +46,7 @@ function Navigation({ onClick }: { onClick: (page: Pages) => void }) {
           <NavButton onClick={() => onClick(Pages.STACK)}>Tech Stack</NavButton>
           <NavButton onClick={() => onClick(Pages.FACTS)}>Fun Facts</NavButton>
           <NavButton onClick={() => onClick(Pages.CONTACT)}>Contact</NavButton>
-          <NavButton href="pdfs/resume.pdf" download>
+          <NavButton href="pdfs/resume.pdf">
             Resume
           </NavButton>
         </Typography>

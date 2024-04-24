@@ -12,6 +12,7 @@ import {
 } from "@mui/lab";
 import { Typography, styled } from "@mui/material";
 import { grey } from "@mui/material/colors";
+import Image from "next/image";
 import { ReactNode } from "react";
 
 function DateField({ dates }: { dates: string }) {
@@ -72,7 +73,7 @@ function Separator({
 
 function Logo({ src }: { src: string }) {
   const imageSize = 30;
-  return <img src={src} width={imageSize} height={imageSize} />;
+  return <Image alt="logo" src={src} width={imageSize} height={imageSize} />;
 }
 
 function HighlightsList({ entries }: { entries: string[] }) {
@@ -207,8 +208,7 @@ export default function TimelineSection() {
           <ChildCareSharp />
         </Separator>
         <Entry title="Birth" position="Human Intern">
-          According to my mother I was adorable. Everyone else uses the phrase
-          "oddly Churchill-ian".
+        {"According to my mother I was adorable. Everyone else uses the phrase\"oddly Churchill-ian\"."}
         </Entry>
       </Item>
     </Timeline>
